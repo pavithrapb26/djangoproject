@@ -1,0 +1,236 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>DigiPharma</title> -->
+    <!-- <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+            color: #2592b0ee;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(#141e30,#2a6c56);
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #2c7a7b;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .tagline {
+            font-size: 1em;
+            color: #14e3c1e5;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .message {
+            font-size: 1em;
+            color: #e53e3e;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #4a5568;
+            font-style: italic;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            background-color: #2c7a7b;
+            color: #fff;
+            text-decoration:none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 1em;
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        a:hover {
+            
+            transform: translateY(-2px);
+        }
+        
+    .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        background-color: rgb(102, 126, 122);
+        border-radius: 10px;
+        box-shadow: 0 10px 20px rgba(5, 211, 156, 0.822);
+
+        }
+
+    </style> -->
+    <!-- <style>
+        .container{
+            background-image: "./https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fmedical-landing-page&psig=AOvVaw0AI1R-dnv4pvLPyaNaOszG&ust=1731090819803000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMC-3fPtyokDFQAAAAAdAAAAABAE";
+        }
+    </style>
+</head>
+<body>
+     <div class="container"> -->
+  <!-- <div>  <h1>DigiPharma</h1></div>
+    <div class="tagline"><h4>"Your Digital Gateway to Health and Wellness."</h4></div>
+  <div class="container">  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fmedical-landing-page&psig=AOvVaw0AI1R-dnv4pvLPyaNaOszG&ust=1731090819803000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMC-3fPtyokDFQAAAAAdAAAAABAE"><div>
+    <h2>Login</h2>
+    <a href="admin/">Staff/Admin</a><br>
+    <a href="{% url 'userpage' %}">Customer</a></div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiPharma - Home</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://scontent.fccj6-2.fna.fbcdn.net/v/t39.30808-6/305623165_478361350974109_590255660014198104_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=fWfM40oLEjUQ7kNvgH1v58L&_nc_zt=23&_nc_ht=scontent.fccj6-2.fna&_nc_gid=AwbvH_NHtc3CDp0-cG7Wjy9&oh=00_AYC83PO1ukHAeYvsaSv3Xu_B_YgWaXQpDcSxOdEBg40dCw&oe=6735A404') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        /* Container styling */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80%; 
+
+        }
+
+        /* Title styling */
+        .container h1 {
+            font-size: 3em;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        /* Tagline styling */
+        .tagline h4 {
+            font-size: 1.5em;
+            font-style: italic;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Button styling */
+        .container a {
+            display: inline-block;
+            margin: 10px 15px;
+            padding: 12px 25px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .container a:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive image styling */
+        .container img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            margin-top: 20px;
+            border-radius: 10px;
+            flex-grow: 1; 
+
+        }
+        .button-container {
+            /* display: flex;
+            justify-content: space-between;
+            margin-top: 500px;
+            
+            /* margin: 10px 15px;
+            padding: 12px 25px; */
+            /* font-size: 1.5em;
+            color: #fff;
+            background-color: #4CAF50;
+            text-decoration: none;
+            border-radius: 5px;
+             transition: background 0.3s ease; 
+             width: 100%;  */
+             text-align: center;  /* Centers the buttons */
+             margin-top: 500px; 
+        }
+        .button-container a {
+    display: inline-block;
+    margin: 10px 15px;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: black;
+    /* background-color: #4CAF50; */
+    text-decoration:unset;
+    border-radius: 5px;
+    transition: background 0.3s ease; 
+    /* width: 48%; Makes each button take half the available space */
+    margin-bottom: 20px; 
+}
+
+ .button-container a:hover {
+    background-color: #45a049; 
+                    } 
+
+    </style>
+</head>
+<body>
+    
+        <div class="button-container">
+            <a href="admin/">Staff/Admin</a> <!-- First button -->
+        </div>
+    
+        <div class="button-container">
+            <a href="{% url 'userpage' %}">Customer</a> <!-- Second button -->
+        </div>
+    </body></html>
+    
+
+         

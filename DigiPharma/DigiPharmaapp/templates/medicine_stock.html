@@ -1,0 +1,130 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Stock Availability</title>
+</head>
+<body>
+    <h1>Medicine Stock Availability</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Price</th>
+                <th>Stock Available</th>
+                <th>Expiry Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine in medicines %}
+                <tr>
+                    <td>{{ medicine.name }}</td>
+                    <td>₹{{ medicine.price }}</td>
+                    <td>{{ medicine.stock }} units</td>
+                    <td>{{ medicine.expiry_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table><br><br>
+    <a href="{% url 'welcome' %}">GoBackTo DashBoard</a>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medicine Stock Availability</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #28a745;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+
+        td {
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Medicine Stock Availability</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Medicine Name</th>
+                <th>Price</th>
+                <th>Stock Available</th>
+                <th>Expiry Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicine in medicines %}
+                <tr>
+                    <td>{{ medicine.name }}</td>
+                    <td>₹{{ medicine.price }}</td>
+                    <td>{{ medicine.stock }} units</td>
+                    <td>{{ medicine.expiry_date }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'welcome' %}">Go Back to Dashboard</a>
+
+</body>
+</html>
+

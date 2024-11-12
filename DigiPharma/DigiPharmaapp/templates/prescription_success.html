@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html>
+    <body>
+        <h2>Prescription Created Successfully!</h2>
+        <p>Your new prescription is:</p>
+        <p><strong>Doctor's Name:</strong> {{ prescription.doctor_name }}</p>
+        <p><strong>Date Issued:</strong> {{ prescription.date_issued }}</p>
+        <p><strong>Medicines:</strong>
+            {% for medicine in prescription.medicines.all %}
+                {{ medicine.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+        <a href="{% url 'manage_prescriptions' %}">Back to Your Prescriptions</a>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescription Created</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #28a745;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            border: 1px solid #007bff;
+            padding: 10px 15px;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Prescription Created Successfully!</h2>
+    <p>Your new prescription is:</p>
+    <p><strong>Doctor's Name:</strong> {{ prescription.doctor_name }}</p>
+    <p><strong>Date Issued:</strong> {{ prescription.date_issued }}</p>
+    <p><strong>Medicines:</strong>
+        {% for medicine in prescription.medicines.all %}
+            {{ medicine.name }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+    <a href="{% url 'manage_prescriptions' %}">Back to Your Prescriptions</a>
+
+</body>
+</html>

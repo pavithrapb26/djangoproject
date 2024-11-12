@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html><head><title>div</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Body Styling */
+        body {
+            font-family: 'Verdana', sans-serif;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+    
+        /* Container for Centering Content */
+        .customer-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+    
+        /* Headings Styling */
+        h1 {
+            font-size: 2.5rem;
+            color: #4a4e69;
+            margin-bottom: 20px;
+        }
+    
+        /* Form Styling */
+        form {
+            margin-bottom: 20px;
+        }
+    
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+    
+        input[type="text"]:focus {
+            border-color: #4a4e69;
+        }
+    
+        button, input[type="submit"] {
+            background-color: #4a4e69;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover, input[type="submit"]:hover {
+            background-color: #22223b;
+        }
+    
+        /* Link Styling */
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            color: #4a4e69;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+    
+        a:hover {
+            color: #22223b;
+        }
+    
+        /* Extra Space Between Elements */
+        .spacer {
+            margin-bottom: 20px;
+        }
+    </style>
+    
+</head>
+    <body>
+        <div class="customer-container">
+        <h1>welcome customers to digipharma</h1>
+        <br>
+        <br>
+        <form method="get" action="{% url 'search_medicines' %}">
+            <input type="text" name="q" placeholder="Search for medicines..." value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
+        <div class="spacer"></div>
+        <a href="{% url 'medicine_list' %}">view avilable medicines</a><br>
+        <a href="{% url 'buy_medicine' %}">Buy Medicines</a><br>
+        <a href="{% url 'manage_prescriptions' %}">Manage Prescriptions</a><br>
+        <a href="{% url 'sales_details' %}">sales details</a><br>
+        <a href="{% url 'medicine_stock_availability' %}">Check Medicine Stock Availability</a><br>
+        <a href="{% url 'recent_purchases' %}">View Recent Purchases</a><br>
+        <a href="{% url 'profile_management' %}">Manage Profile</a><br>
+        <a href="{% url 'happy_customers' %}">Happy Customers</a><br>
+        <a href="{% url 'feedback' %}">Feedback & Suggestions</a><br>
+        <a href="{% url 'about' %}">About DigiPharma</a>
+        <div class="spacer"></div>
+    
+
+        <form action="{% url 'home' %}">
+            <input type="submit" value="Logout"></form>
+    </body>
+</html>
+

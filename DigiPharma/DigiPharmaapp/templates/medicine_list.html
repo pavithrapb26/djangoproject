@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html><head><title>medicine</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Body Styling */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #c3ec52, #0ba29d);
+            color: #2d3436;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+    
+        /* Container for the List */
+        .medicine-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+    
+        /* Headings Styling */
+        h2 {
+            color: #0ba29d;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+    
+        /* List Styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+            transition: transform 0.2s;
+        }
+    
+        li:hover {
+            transform: translateY(-5px);
+            background-color: #eaf6f6;
+        }
+    
+        /* Link Styling */
+        a {
+            color: #2d3436;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+    
+        a:hover {
+            color: #0ba29d;
+        }
+    
+        /* Empty Message Styling */
+        p {
+            color: #ff6b6b;
+            font-style: italic;
+            margin-top: 20px;
+        }
+    
+        /* Back Link Styling */
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0ba29d;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+    
+        .back-link:hover {
+            color: #2d3436;
+        }
+    </style>
+    
+</head>
+    
+<body>
+    <div class="medicine-container">
+<h2>Available Medicines</h2>
+<ul>
+    {% for medicine in medicines %}
+        <li>
+            <a href="{% url 'medicine_detail' medicine.id %}">
+                {{ medicine.name }}
+            </a> -₹{{ medicine.price }}
+            
+        </li>
+    {% empty %}
+        <p>No medicines are currently available.</p>
+    {% endfor %}
+</ul><br>
+<a href="{% url 'welcome' %}" class="back-link">back to customer page</a>
+
+</body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Medicines</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 40px;
+        }
+    
+        /* Container for the Content */
+        .search-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+    
+        /* Headings */
+        h1, h2 {
+            color: #00695c;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    
+        h1 {
+            font-size: 2.5rem;
+        }
+    
+        h2 {
+            font-size: 1.8rem;
+        }
+    
+        /* Form Styling */
+        form {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #80deea;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+    
+        input[type="text"]:focus {
+            border-color: #00695c;
+            outline: none;
+        }
+    
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #00695c;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    
+        button:hover {
+            background-color: #004d40;
+        }
+    
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        thead {
+        background-color: #00695c;
+        color: #ffffff;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    /* No Results Message */
+    p {
+        color: #d32f2f;
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 20px;
+    }
+   </style></head><body><div class="search-container">
+
+    <h1>Search Medicines</h1>
+    <form method="get" action="{% url 'search_medicines' %}">
+        <input type="text" name="q" placeholder="Search for medicines..." value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    {% if medicines %}
+        <h2>Search Results:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Medicine Name</th>
+                    <th>Price</th>
+                    <th>Stock Available</th>
+                    <th>Expiry Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for medicine in medicines %}
+                    <tr>
+                        <td>{{ medicine.name }}</td>
+                        <td>₹{{ medicine.price }}</td>
+                        <td>{{ medicine.stock }} units</td>
+                        <td>{{ medicine.expiry_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No medicines found.</p>
+    {% endif %}
+</body>
+</html>

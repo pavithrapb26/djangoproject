@@ -1,0 +1,115 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Customers</title>
+</head>
+<body>
+    <h1>Our Happy Customers</h1>
+
+    {% if customers %}
+        <ul>
+            {% for customer in customers %}
+                <li>{{ customer.name }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No customers have used this application yet.</p>
+    {% endif %}
+
+    <a href="{% url 'welcome' %}">Back to Dashboard</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Customers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #28a745;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .customer-list {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px 15px;
+            margin: 8px 0;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        li:hover {
+            background-color: #e2e2e2;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #999;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Our Happy Customers</h1>
+
+    <div class="customer-list">
+        {% if customers %}
+            <ul>
+                {% for customer in customers %}
+                    <li>{{ customer.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No customers have used this application yet.</p>
+        {% endif %}
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{% url 'welcome' %}">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!-- <!DOCTYPE html>
+<html><head><title>buy</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+    
+        /* Container for the Page Content */
+        .buy-medicines-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            
+        }
+    
+        /* Heading Styling */
+        h1 {
+            color: #2d98da;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+    
+        /* Medicine List Styling */
+        .medicine-item {
+            display: block;
+        margin-bottom: 15px;
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+        }
+        .medicine-item label {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+    }
+    .medicine-item input[type="checkbox"] {
+        margin-right: 10px;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    
+        h3 {
+            margin-top: 20px;
+            color: #2d98da;
+            font-size: 1.5rem;
+        }
+    
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #2d98da;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+    
+        select:focus {
+            border-color: #007bb5;
+           
+        }
+        button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        font-size: 1.1rem;
+        color: #ffffff;
+        background-color: #00796b;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #007bb5;
+    }
+</style>
+    
+</head>
+    <body><div class="buy-medicines-container">
+        <h1>Buy Medicines</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for medicine in medicines %}
+            <div class="medicine-item"></div><label>
+                <input type="checkbox" name="medicine_ids" value="{{ medicine.id }}">
+                {{ medicine.name }} - ₹{{ medicine.price }}
+                </label></div>
+            {% endfor %}
+
+            <h3>Select Payment Method:</h3>
+            <select name="payment_method" required>
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+                <option value="UPI">UPI</option>
+            </select><br>
+            <button type="submit">Purchase Selected Medicines</button>
+        </form>
+    </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Buy Medicines</title>
+    <style>
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    
+        /* Body Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+    
+        /* Container for the Page Content */
+        .buy-medicines-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+    
+        /* Heading Styling */
+        h1 {
+            color: #2d98da;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+    
+        /* Medicine List Styling (vertical layout) */
+        .medicine-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .medicine-item label {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .medicine-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    
+        h3 {
+            margin-top: 20px;
+            color: #2d98da;
+            font-size: 1.5rem;
+        }
+    
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #2d98da;
+            border-radius: 5px;
+            background-color: #f4f4f4;
+            color: #333;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+    
+        select:focus {
+            border-color: #007bb5;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            font-size: 1.1rem;
+            color: #ffffff;
+            background-color: #00796b;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #007bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="buy-medicines-container">
+        <h1>Buy Medicines</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for medicine in medicines %}
+                <div class="medicine-item">
+                    <label>
+                        <input type="checkbox" name="medicine_ids" value="{{ medicine.id }}">
+                        {{ medicine.name }} - ₹{{ medicine.price }}
+                    </label>
+                </div>
+            {% endfor %}
+
+            <h3>Select Payment Method:</h3>
+            <select name="payment_method" required>
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+                <option value="UPI">UPI</option>
+            </select><br>
+            <button type="submit">Purchase Selected Medicines</button>
+        </form>
+    </div>
+</body>
+</html>

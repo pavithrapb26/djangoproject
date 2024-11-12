@@ -1,0 +1,145 @@
+<!-- <!DOCTYPE html>
+<html>
+    <body>
+<h2>Your Prescriptions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Doctor Name</th>
+            <th>Medicines</th>
+            <th>Date Issued</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for prescription in prescriptions %}
+        <tr>
+            <td>{{ prescription.doctor_name }}</td>
+            <td>
+                {% for medicine in prescription.medicines.all %}
+                    {{ medicine.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </td>
+            <td>{{ prescription.date_issued }}</td>
+            <td>{{ prescription.is_approved|yesno:"Approved,Pending" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'create_prescription' %}">Create Your Prescription</a><br><br>
+<a href="{% url 'welcome' %}">Go Back to Customer Page</a> 
+</body></html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Prescriptions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #28a745;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+        }
+
+        td {
+            background-color: #ffffff;
+            font-size: 14px;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+        }
+
+        a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .table-container {
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2>Your Prescriptions</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Medicines</th>
+                    <th>Date Issued</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prescription in prescriptions %}
+                <tr>
+                    <td>{{ prescription.doctor_name }}</td>
+                    <td>
+                        {% for medicine in prescription.medicines.all %}
+                            {{ medicine.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>{{ prescription.date_issued }}</td>
+                    <td>{{ prescription.is_approved|yesno:"Approved,Pending" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="{% url 'create_prescription' %}">Create Your Prescription</a><br><br>
+        <a href="{% url 'welcome' %}">Go Back to Customer Page</a>
+    </div>
+
+</body>
+</html>

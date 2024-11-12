@@ -1,0 +1,139 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Recent Purchases</title>
+</head>
+<body>
+    <h1>Your Recent Purchases</h1>
+    
+    {% if recent_sales %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Sale ID</th>
+                    <th>Medicine</th>
+                    <th>Quantity</th>
+                    <th>Total Amount</th>
+                    <th>Sale Date</th>
+                    <th>Payment Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sale in recent_sales %}
+                    <tr>
+                        <td>{{ sale.id }}</td>
+                        <td>{{ sale.medicine.name }}</td>
+                        <td>{{ sale.quantity }}</td>
+                        <td>₹{{ sale.total_amount }}</td>
+                        <td>{{ sale.sale_date }}</td>
+                        <td>{{ sale.payment_method }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No recent purchases found.</p>
+    {% endif %}
+    <br><br>
+    <a href="{% url 'welcome' %}">GoBackToDashBoard</a>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recent Purchases</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Recent Purchases</h1>
+
+    {% if recent_sales %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Sale ID</th>
+                    <th>Medicine</th>
+                    <th>Quantity</th>
+                    <th>Total Amount</th>
+                    <th>Sale Date</th>
+                    <th>Payment Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sale in recent_sales %}
+                    <tr>
+                        <td>{{ sale.id }}</td>
+                        <td>{{ sale.medicine.name }}</td>
+                        <td>{{ sale.quantity }}</td>
+                        <td>₹{{ sale.total_amount }}</td>
+                        <td>{{ sale.sale_date }}</td>
+                        <td>{{ sale.payment_method }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No recent purchases found.</p>
+    {% endif %}
+
+    <a href="{% url 'welcome' %}">Go Back to Dashboard</a>
+</body>
+</html>

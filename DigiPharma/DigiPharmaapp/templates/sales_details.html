@@ -1,0 +1,173 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Details</title>
+</head>
+<body>
+    <h1>Sales Details</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Medicine</th>
+                <th>Total Amount</th>
+                <th>Sale Date</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales %}
+                <tr>
+                    <td>{{ sale.id }}</td> <!-- Use the default 'id' field -->
+                    <!-- <td>{{ sale.customer.name }}</td>
+                    <td>{{ sale.medicine.name }}</td>
+                    <td>{{ sale.total_amount }}</td>
+                    <td>{{ sale.sale_date }}</td>
+                    <td>{{ sale.payment_method }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Total Amount of Sales: ₹{{ total_sales_amount }}</h2>
+
+    {% if most_profitable_medicine %}
+        <h2>Most Profitable Medicine:</h2>
+        <p>Name: {{ most_profitable_medicine.name }}</p>
+        <p>Total Profit of {{most_profitable_medicine.name}} is ₹{{ most_profitable_medicine_profit  }}</p>
+    {% else %}
+        <p>No sales data available.</p>
+    {% endif %}
+    <br>
+    <a href="{% url 'welcome' %}">GoBackToDashBoard</a>
+</body>
+</html>  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sales Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .total-sales, .most-profitable {
+            max-width: 800px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .dashboard-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sales Details</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Medicine</th>
+                <th>Total Amount</th>
+                <th>Sale Date</th>
+                <th>Payment Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale in sales %}
+                <tr>
+                    <td>{{ sale.id }}</td>
+                    <td>{{ sale.customer.name }}</td>
+                    <td>{{ sale.medicine.name }}</td>
+                    <td>₹{{ sale.total_amount }}</td>
+                    <td>{{ sale.sale_date }}</td>
+                    <td>{{ sale.payment_method }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="total-sales">
+        <h2>Total Amount of Sales: ₹{{ total_sales_amount }}</h2>
+    </div>
+
+    {% if most_profitable_medicine %}
+        <div class="most-profitable">
+            <h2>Most Profitable Medicine:</h2>
+            <p>Name: {{ most_profitable_medicine.name }}</p>
+            <p>Total Profit of {{ most_profitable_medicine.name }} is ₹{{ most_profitable_medicine_profit }}</p>
+        </div>
+    {% else %}
+        <p>No sales data available.</p>
+    {% endif %}
+
+    <a href="{% url 'welcome' %}" class="dashboard-link">Go Back to Dashboard</a>
+</body>
+</html>
